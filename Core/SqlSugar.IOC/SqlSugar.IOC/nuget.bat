@@ -1,0 +1,1 @@
+%~dp0nuget.exe pack %~dp0SqlSugarIoc.nuspec -OutputDirectory %~dp0
