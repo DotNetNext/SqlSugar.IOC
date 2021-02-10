@@ -6,3 +6,4 @@ G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\obj\Debug\netstandard2.0\SqlSugar.
 G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\obj\Debug\netstandard2.0\SqlSugar.IOC.csproj.CoreCompileInputs.cache
 G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\obj\Debug\netstandard2.0\SqlSugar.IOC.dll
 G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\obj\Debug\netstandard2.0\SqlSugar.IOC.pdb
+G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\obj\Debug\netstandard2.0\SqlSugar.IOC.csprojAssemblyReference.cache
