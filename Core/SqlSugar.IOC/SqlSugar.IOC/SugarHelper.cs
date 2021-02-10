@@ -10,6 +10,16 @@ namespace SqlSugar.IOC
         {
             string json = GetConnectionJson();
             var connectionConfigList = JsonConvert.DeserializeObject<List<ConnectionConfig>>(json);
+            foreach (var item in connectionConfigList)
+            {
+                if (item.SlaveConnectionConfigs != null && item.SlaveConnectionConfigs.Count > 0) 
+                {
+                    foreach (var slave in item.SlaveConnectionConfigs)
+                    {
+                        slave.HitRate = 100;
+                    }
+                }
+            }
             SqlSugarClient result = new SqlSugarClient(connectionConfigList);
             return result;
         }
