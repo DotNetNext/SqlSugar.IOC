@@ -20,6 +20,7 @@ namespace NET5.Controllers
         {
              this.class1 = c1;
              this.interface1 = i1;
+            this.t2 = t2;
         }
 
 
