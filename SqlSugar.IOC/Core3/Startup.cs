@@ -9,10 +9,9 @@ using SqlSugar.IOC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
-namespace NET5
+namespace Core3
 {
     public class Startup
     {
@@ -26,7 +25,6 @@ namespace NET5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSqlSugar(new IocConfig()
             {
@@ -34,8 +32,8 @@ namespace NET5
                 DbType = IocDbType.SqlServer,
                 IsAutoCloseConnection = true
             });
-            services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
-            services.AddIoc(this,"NET5", it => it.Name.Contains("Controller"));
+            services.AddIoc(this, "BizTest", it => it.Name.Contains("Test"));
+            services.AddIoc(this, "Core3", it => it.Name.Contains("Controller"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
