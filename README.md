@@ -25,8 +25,9 @@ Nuget： SqlSugar.IOC
 用到 DbScoped.Sugar 的类库就需要引用 SqlSugarCore,否则不需要安装
 
 
-#4、用法
+# 4、用法
 在注入实体类的同时,实体所继承的接口也注入进去了
+
 ```cs
 //注入SqlSugar对象
 services.AddSqlSugar(new IocConfig()
@@ -36,16 +37,16 @@ services.AddSqlSugar(new IocConfig()
                 IsAutoCloseConnection = true
 });
 
-
-
 //注入控制器
 
 services.AddIoc(this, "NETAPI", it => it.Name.Contains("Controller"));
-```
 
 //注入带有Test的类和Test继承的接口
 services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
+
+```
 上面代码只注入了带有Test所有类，那么接口也可以用了
+
 ```cs
 
     [ApiController]
@@ -81,3 +82,5 @@ services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
 
 
 ```
+# 5.更多用法
+http://www.donet5.com/Doc/10/2253
