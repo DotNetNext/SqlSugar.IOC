@@ -26,7 +26,6 @@ Nuget： SqlSugar.IOC
 
 
 # 4、用法
-在注入实体类的同时,实体所继承的接口也注入进去了
 
 ```cs
 //注入SqlSugar对象
