@@ -82,5 +82,19 @@ services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
 
 
 ```
+
+### 使用注入后SqlSugar对象
+```cs
+  public List<UserOrgMapping> GetMapping() 
+  {
+            List<UserOrgMapping> result=DbScoped.Sugar.Queryable<UserOrgMapping>()
+                .Mapper(it => it.OrgInfo, it => it.OrgId)
+                .Mapper(it => it.UserInfo, it => it.UserId)
+                .ToList();
+             DbScoped.Sugar.Deleteable<Student>().In(1).ExecuteCommand();
+            return result;
+  }
+```
+
 # 5.更多用法
 http://www.donet5.com/Doc/10/2253
