@@ -36,7 +36,7 @@ services.AddSqlSugar(new IocConfig()
                 DbType = IocDbType.SqlServer,
                 IsAutoCloseConnection = true
 });
-
+```
  
 ### 使用注入后SqlSugar对象
 ```cs
