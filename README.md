@@ -65,7 +65,7 @@ services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
         [HttpGet]
         public DateTime Get()
         {
-            var datetime =   interface1;.GetDate();
+            var datetime =   interface1.GetDate();
             return datetime;
         }
     }
