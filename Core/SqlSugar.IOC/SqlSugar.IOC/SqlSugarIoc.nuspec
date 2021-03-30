@@ -19,6 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="G:\SqlSugarIOC\Core\SqlSugar.IOC\SqlSugar.IOC\bin\Debug\netstandard2.0\SqlSugar.IOC.dll" target="lib\netstandard2.0"></file>
+    <file src="E:\Git\SugarIoc\Core\SqlSugar.IOC\SqlSugar.IOC\bin\Debug\netstandard2.0\SqlSugar.IOC.dll" target="lib\netstandard2.0"></file>
   </files>
 </package>
