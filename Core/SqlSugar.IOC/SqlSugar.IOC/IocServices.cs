@@ -14,5 +14,10 @@ namespace SqlSugar.IOC
         {
             SugarServiceCollectionExtensions.configs.AddRange(iocList);
         }
+
+        public static void ConfigurationSugar(Action<SqlSugarClient> action) 
+        {
+            SugarServiceCollectionExtensions.Configuration= action;
+        }
     }
 }

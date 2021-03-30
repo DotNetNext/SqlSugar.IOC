@@ -21,7 +21,15 @@ namespace SqlSugar.IOC
                 }
             }
             SqlSugarClient result = new SqlSugarClient(connectionConfigList);
+            AopConfiguration(result);
             return result;
+        }
+        private static void AopConfiguration(SqlSugarClient result)
+        {
+            if (SugarServiceCollectionExtensions.Configuration != null)
+            {
+                SugarServiceCollectionExtensions.Configuration(result);
+            }
         }
 
         private static string GetConnectionJson()

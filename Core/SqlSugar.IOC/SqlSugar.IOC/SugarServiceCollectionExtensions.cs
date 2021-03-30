@@ -11,6 +11,9 @@ using System.Linq.Expressions;
 public static class SugarServiceCollectionExtensions
 {
     internal static List<IocConfig> configs = new List<IocConfig>();
+
+    internal static Action<SqlSugarClient> Configuration { get;  set; }
+
     public static void AddSqlSugar(this IServiceCollection server, IocConfig ioc)
     {
         configs.Add(ioc);
@@ -18,6 +21,10 @@ public static class SugarServiceCollectionExtensions
     public static void AddSqlSugar(this IServiceCollection server, List<IocConfig> iocList)
     {
         configs.AddRange(iocList);
+    }
+    public static void ConfigurationSugar(this IServiceCollection server, Action<SqlSugarClient> action)
+    {
+        SugarServiceCollectionExtensions.Configuration = action;
     }
 
     public static void AddIoc(this IServiceCollection serve, object webObject, string assemblyName,Func<Type,bool> classFilter) 

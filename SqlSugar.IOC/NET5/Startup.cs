@@ -30,9 +30,16 @@ namespace NET5
             services.AddControllers();
             services.AddSqlSugar(new IocConfig()
             {
-                ConnectionString = "server=.;uid=sa;pwd=haosql;database=SQLSUGAR4XTEST",
+                ConnectionString = "server=.;uid=sa;pwd=sasa;database=SQLSUGAR4XTEST",
                 DbType = IocDbType.SqlServer,
                 IsAutoCloseConnection = true
+            });
+            services.ConfigurationSugar(db =>
+            {
+                db.Aop.OnLogExecuting = (sql, p) =>
+                {
+                    Console.WriteLine(sql);
+                };
             });
             services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
             services.AddIoc(this,"NET5", it => it.Name.Contains("Controller"));
