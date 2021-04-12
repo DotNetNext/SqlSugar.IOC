@@ -30,15 +30,27 @@ namespace NET5
             services.AddControllers();
             services.AddSqlSugar(new IocConfig()
             {
+                ConfigId="1",
+                ConnectionString = "server=.;uid=sa;pwd=sasa;database=SQLSUGAR4XTEST",
+                DbType = IocDbType.SqlServer,
+                IsAutoCloseConnection = true
+            });
+            services.AddSqlSugar(new IocConfig()
+            {
+                ConfigId = "2",
                 ConnectionString = "server=.;uid=sa;pwd=sasa;database=SQLSUGAR4XTEST",
                 DbType = IocDbType.SqlServer,
                 IsAutoCloseConnection = true
             });
             services.ConfigurationSugar(db =>
             {
-                db.Aop.OnLogExecuting = (sql, p) =>
+                db.GetConnection("1").Aop.OnLogExecuting = (sql, p) =>
                 {
-                    Console.WriteLine(sql);
+                    Console.WriteLine(1+sql);
+                };
+                db.GetConnection("2").Aop.OnLogExecuting = (sql, p) =>
+                {
+                    Console.WriteLine(2+sql);
                 };
             });
             services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));

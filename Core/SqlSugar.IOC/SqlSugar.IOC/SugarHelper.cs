@@ -19,6 +19,10 @@ namespace SqlSugar.IOC
                         slave.HitRate = 100;
                     }
                 }
+                if (item.AopEvents == null)
+                {
+                    item.AopEvents = new AopEvents();
+                }
             }
             SqlSugarClient result = new SqlSugarClient(connectionConfigList);
             AopConfiguration(result);

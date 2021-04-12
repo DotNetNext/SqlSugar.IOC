@@ -27,6 +27,7 @@ namespace NET5.Controllers
         public DateTime Get()
         {
             var datetime= DbScoped.Sugar.GetDate();
+            var datetime2 = DbScoped.Sugar.GetConnection("2").GetDate();
             return datetime;
         }
     }
