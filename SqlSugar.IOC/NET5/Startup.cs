@@ -54,6 +54,7 @@ namespace NET5
                 };
             });
             services.AddIoc(this,"BizTest", it => it.Name.Contains("Test"));
+            services.AddIoc(this, "DalTest", it => it.Name.Contains("Test"));
             services.AddIoc(this,"NET5", it => it.Name.Contains("Controller"));
         }
 
