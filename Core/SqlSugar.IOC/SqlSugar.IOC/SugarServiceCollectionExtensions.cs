@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Loader;
 
 public static class SugarServiceCollectionExtensions
 {
@@ -45,7 +46,18 @@ public static class SugarServiceCollectionExtensions
         }
         if (assembly == null)
         {
-            throw new Exception("未找到程序集" + assembly.FullName+" "+mainAssembly.FullName+"未引用，可能是大小写或者写错。");
+            try
+            {
+                assembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(assemblyName));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("查看是否引用 "+assemblyName+" 详细错误："+ex.Message);
+            }
+        }
+        if (assembly == null)
+        {
+            throw new Exception("未找到程序集" + assemblyName + "未引用，可能是大小写或者写错或者没有引用");
         }
         var types = assembly.GetTypes().Where(classFilter).ToList();
         foreach (var item in types.Where(it=>it.IsInterface==false&&it.IsClass==true))
