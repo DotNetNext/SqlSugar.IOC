@@ -8,11 +8,19 @@ namespace SqlSugar.IOC
     {
         public static SqlSugarClient GetNewSugarClient()
         {
+            List<ConnectionConfig> connectionConfigList = GetConnectionList();
+            SqlSugarClient result = new SqlSugarClient(connectionConfigList);
+            AopConfiguration(result);
+            return result;
+        }
+
+        public static List<ConnectionConfig> GetConnectionList()
+        {
             string json = GetConnectionJson();
             var connectionConfigList = JsonConvert.DeserializeObject<List<ConnectionConfig>>(json);
             foreach (var item in connectionConfigList)
             {
-                if (item.SlaveConnectionConfigs != null && item.SlaveConnectionConfigs.Count > 0) 
+                if (item.SlaveConnectionConfigs != null && item.SlaveConnectionConfigs.Count > 0)
                 {
                     foreach (var slave in item.SlaveConnectionConfigs)
                     {
@@ -24,10 +32,10 @@ namespace SqlSugar.IOC
                     item.AopEvents = new AopEvents();
                 }
             }
-            SqlSugarClient result = new SqlSugarClient(connectionConfigList);
-            AopConfiguration(result);
-            return result;
+
+            return connectionConfigList;
         }
+
         private static void AopConfiguration(SqlSugarClient result)
         {
             if (SugarServiceCollectionExtensions.Configuration != null)
