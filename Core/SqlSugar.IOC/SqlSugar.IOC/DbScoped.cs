@@ -14,6 +14,8 @@ namespace SqlSugar.IOC
                 return result;
             }
         }
+        public static SqlSugarScope SugarScope = new SqlSugarScope(SugarHelper.GetConnectionList(), SugarServiceCollectionExtensions.Configuration);
+
 
         private static SqlSugarClient GetSqlSugarClient()
         {
