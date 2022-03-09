@@ -12,6 +12,10 @@ namespace SqlSugar.IOC
         Oracle,
         PostgreSQL,
         Dm,
-        Kdbndp
+        Kdbndp,
+        Oscar,
+        MySqlConnector,
+        Access,
+        Custom = 900
     }
 }
