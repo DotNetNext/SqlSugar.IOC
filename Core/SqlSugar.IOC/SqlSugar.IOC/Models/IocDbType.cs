@@ -16,6 +16,9 @@ namespace SqlSugar.IOC
         Oscar,
         MySqlConnector,
         Access,
+        OpenGauss,
+        QuestDB,
+        HG,
         Custom = 900
     }
 }
