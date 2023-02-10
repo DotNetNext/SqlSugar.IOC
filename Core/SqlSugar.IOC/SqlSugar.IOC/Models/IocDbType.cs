@@ -19,6 +19,9 @@ namespace SqlSugar.IOC
         OpenGauss,
         QuestDB,
         HG,
+        ClickHouse,
+        GBase,
+        Odbc,
         Custom = 900
     }
 }
